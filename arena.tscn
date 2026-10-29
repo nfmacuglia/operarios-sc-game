@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bmy66e7fdmght"]
+
+[ext_resource type="Script" uid="uid://chngmalwt2m1e" path="res://arena.gd" id="1_444vf"]
+[ext_resource type="PackedScene" uid="uid://ckgdh36eqftvw" path="res://fighter.tscn" id="1_ubfh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g21bf"]
+size = Vector2(1152, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4bwp"]
+size = Vector2(20, 650)
+
+[node name="Arena" type="Node2D" unique_id=100247954]
+script = ExtResource("1_444vf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=451934581]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=754574109]
+position = Vector2(576, 628)
+shape = SubResource("RectangleShape2D_g21bf")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1812937079]
+offset_top = 608.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0.36084005, 0.08134244, 1)
+
+[node name="WallLeft" type="CollisionShape2D" parent="StaticBody2D" unique_id=1329812418]
+position = Vector2(-10, 324)
+shape = SubResource("RectangleShape2D_m4bwp")
+
+[node name="WallRight" type="CollisionShape2D" parent="StaticBody2D" unique_id=1184229494]
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_m4bwp")
+
+[node name="Fighter" parent="." unique_id=734019431 instance=ExtResource("1_ubfh8")]
+position = Vector2(219, 558)
+
+[node name="Fighter2" parent="." unique_id=1338311367 instance=ExtResource("1_ubfh8")]
+modulate = Color(7.057308, 1.2714258, 6.2090425e-05, 1)
+position = Vector2(1062, 557)
+player_id = 2
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=869163328]
+
+[node name="HealthBar_P1" type="ProgressBar" parent="UI" unique_id=1498992106]
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 440.0
+offset_bottom = 60.0
+value = 100.0
+
+[node name="HealthBar_P2" type="ProgressBar" parent="UI" unique_id=835664924]
+offset_left = 712.0
+offset_top = 30.0
+offset_right = 1112.0
+offset_bottom = 60.0
+value = 100.0
+fill_mode = 1
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=152057875]
+offset_left = 550.0
+offset_top = 20.0
+offset_right = 596.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 40
+text = "99"
+
+[node name="CenterMessage" type="Label" parent="UI" unique_id=1194694785]
+offset_left = 480.0
+offset_top = 250.0
+offset_right = 652.0
+offset_bottom = 338.0
+theme_override_font_sizes/font_size = 64
+text = "LUTE!"
+
+[connection signal="health_changed" from="Fighter" to="UI/HealthBar_P1" method="set_value"]
+[connection signal="health_changed" from="Fighter2" to="UI/HealthBar_P2" method="set_value"]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ckgdh36eqftvw"]
+
+[ext_resource type="Script" uid="uid://kv1kxwnconce" path="res://fighter.gd" id="1_efvb3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4bwp"]
+radius = 20.0
+height = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4bwp"]
+size = Vector2(30, 20)
+
+[node name="Fighter" type="CharacterBody2D" unique_id=734019431]
+script = ExtResource("1_efvb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1298377985]
+shape = SubResource("CapsuleShape2D_m4bwp")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1127672601]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = 50.0
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1452224519]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=918376322]
+position = Vector2(35, 0)
+shape = SubResource("RectangleShape2D_m4bwp")
+
+[node name="ColorRect" type="ColorRect" parent="Hitbox" unique_id=494551279]
+offset_left = 20.0
+offset_top = -10.0
+offset_right = 60.0
+offset_bottom = 10.0
+color = Color(5.833223, 0.00023688948, 0.00011770905, 1)

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fudbr6jgs3dn"]
+
+[ext_resource type="Script" uid="uid://brps3dgcrdvaj" path="res://chip_projectile.gd" id="1_crcyd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4bwp"]
+
+[node name="ChipProjectile" type="Area2D" unique_id=1774403426]
+script = ExtResource("1_crcyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=966304916]
+shape = SubResource("CircleShape2D_m4bwp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1033718922]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 9.0
+color = Color(2.4690104, 2.8182936, 9.77504e-06, 1)
