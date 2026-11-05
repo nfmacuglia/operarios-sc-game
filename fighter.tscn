@@ -7,6 +7,7 @@ radius = 20.0
 height = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4bwp"]
+resource_local_to_scene = true
 size = Vector2(30, 20)
 
 [node name="Fighter" type="CharacterBody2D" unique_id=734019431]
